@@ -50,7 +50,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
       if (productExists) {
         productExists.amount = amount;
-      }else{
+      } else {
         const product = await api.get(`/products/${productId}`);
 
         const newProduct = {
@@ -72,7 +72,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       const updatedCart = [...cart];
       const productIndex = updatedCart.findIndex(product => product.id === productId);
 
-      if (productIndex >=0 ) {
+      if (productIndex >= 0) {
         updatedCart.splice(productIndex, 1);
         setCart(updatedCart);
         localStorage.setItem('@RocketShoes:cart', JSON.stringify(updatedCart))
@@ -103,9 +103,9 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       }
 
       const updatedCart = [...cart];
-      const productExists = updatedCart.find(product => product.id === productId); 
-      
-      if(productExists) {
+      const productExists = updatedCart.find(product => product.id === productId);
+
+      if (productExists) {
         productExists.amount = amount;
         setCart(updatedCart);
         localStorage.setItem('@RocketShoes:cart', JSON.stringify(updatedCart))
